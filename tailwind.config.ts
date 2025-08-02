@@ -74,11 +74,17 @@ export default {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-glass': 'var(--gradient-glass)',
 				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-luxury': 'var(--gradient-luxury)',
+				'gradient-surface': 'var(--gradient-surface)',
+				'pattern-dots': 'var(--pattern-dots)',
+				'pattern-grid': 'var(--pattern-grid)',
 			},
 			boxShadow: {
 				'glass': 'var(--shadow-glass)',
 				'elegant': 'var(--shadow-elegant)',
 				'glow': 'var(--shadow-glow)',
+				'luxury': 'var(--shadow-luxury)',
+				'subtle': 'var(--shadow-subtle)',
 			},
 			backdropBlur: {
 				'glass': '10px',
