@@ -1,96 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* E-Bus Management System Design System with Glassmorphism Effects */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* E-Bus Primary Colors - Blue, Silver, Black Theme */
+    --primary: 214 100% 50%; /* #007BFF - Primary Blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 214 100% 70%;
+    --primary-variant: 214 85% 45%;
+    
+    --secondary: 0 0% 75.7%; /* #C0C0C0 - Silver */
+    --secondary-foreground: 0 0% 9%;
+    --secondary-glow: 0 0% 85%;
+    
+    --accent: 220 14% 96%;
+    --accent-foreground: 0 0% 9%;
+    
+    --background: 210 20% 98%;
+    --foreground: 0 0% 9%; /* Near Black */
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 0 0% 9%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 0 0% 9%;
+    
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8.9% 46.1%;
+    
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 100% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* Glassmorphism Variables */
+    --glass-bg: 255 255 255;
+    --glass-border: 255 255 255;
+    --glass-shadow: 0 0 0;
+    
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-variant)) 100%);
+    
+    /* Shadows for Glassmorphism */
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Sidebar Variables */
+    --sidebar-background: 220 14% 96%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 214 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 0 0% 9%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 214 100% 50%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark Mode E-Bus Theme */
+    --primary: 214 100% 60%;
+    --primary-foreground: 0 0% 9%;
+    --primary-glow: 214 100% 80%;
+    --primary-variant: 214 85% 55%;
+    
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 0 0% 30%;
+    
+    --background: 220 27% 8%;
+    --foreground: 0 0% 98%;
+    
+    --card: 220 27% 12%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 220 27% 12%;
+    --popover-foreground: 0 0% 98%;
+    
+    --muted: 220 27% 15%;
+    --muted-foreground: 220 9% 65%;
+    
+    --accent: 220 27% 15%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 220 27% 18%;
+    --input: 220 27% 18%;
+    --ring: 214 100% 60%;
+    
+    /* Dark Mode Glassmorphism */
+    --glass-bg: 255 255 255;
+    --glass-border: 255 255 255;
+    --glass-shadow: 0 0 0;
+    
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    
+    /* Dark Sidebar */
+    --sidebar-background: 220 27% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 214 100% 60%;
+    --sidebar-primary-foreground: 0 0% 9%;
+    --sidebar-accent: 220 27% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 27% 18%;
+    --sidebar-ring: 214 100% 60%;
   }
 }
 
@@ -100,6 +132,134 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Components */
+  .glass-card {
+    @apply backdrop-blur-md border border-white/20;
+    background: var(--gradient-glass);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-panel {
+    @apply backdrop-blur-lg border border-white/10;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  }
+  
+  /* Bus Status Indicators */
+  .status-active {
+    @apply bg-primary text-primary-foreground;
+    animation: pulse-glow 2s infinite;
+  }
+  
+  .status-stopped {
+    @apply bg-secondary text-secondary-foreground;
+  }
+  
+  .status-idle {
+    @apply bg-muted text-muted-foreground;
+  }
+  
+  .status-maintenance {
+    @apply bg-destructive text-destructive-foreground;
+  }
+  
+  /* Smooth Transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  /* Interactive Elements */
+  .hover-lift:hover {
+    @apply transform -translate-y-1;
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  /* Font Families */
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Custom Animations */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.8);
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slide-down {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
   }
 }
