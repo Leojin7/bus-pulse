@@ -63,29 +63,27 @@ const NotificationBanner: React.FC<NotificationBannerProps> = ({
 
   return (
     <div className={`
-      fixed top-6 left-1/2 transform -translate-x-1/2 z-50 
-      max-w-lg w-full mx-4 transition-all duration-500 ease-out
+      fixed top-4 left-1/2 transform -translate-x-1/2 z-50 
+      max-w-md w-full mx-4 transition-all duration-300 ease-out
       ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
     `}>
       <div className={`
-        luxury-card rounded-2xl border-2 backdrop-blur-2xl p-6 shadow-luxury hover-lift
+        glass-panel rounded-lg border backdrop-blur-md p-4
         ${getColors()}
-        animate-slide-up-elegant
+        animate-slide-up
       `}>
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="animate-pulse-glow">
-              {getIcon()}
-            </div>
-            <p className="text-sm font-semibold leading-relaxed">{message}</p>
+          <div className="flex items-center space-x-3">
+            {getIcon()}
+            <p className="text-sm font-medium">{message}</p>
           </div>
           <Button
             variant="ghost"
             size="sm"
             onClick={onDismiss}
-            className="h-8 w-8 p-0 hover:bg-white/15 hover-breathe rounded-xl"
+            className="h-6 w-6 p-0 hover:bg-white/10"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </Button>
         </div>
       </div>

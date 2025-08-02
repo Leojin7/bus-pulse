@@ -9,14 +9,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-luxury text-primary-foreground hover:shadow-luxury hover:scale-105 hover-glow",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-elegant",
-        outline: "border-2 border-primary/30 bg-gradient-glass text-foreground hover:border-primary/50 hover:bg-white/20 hover-lift",
-        secondary: "bg-gradient-glass text-foreground hover:bg-white/20 hover-glow",
-        ghost: "hover:bg-white/15 hover:text-foreground backdrop-blur-xl hover-breathe",
-        link: "text-primary underline-offset-4 hover:underline hover:shadow-glow",
-        glass: "luxury-card text-foreground hover:bg-white/25 border-white/30 hover-lift",
-        hero: "bg-gradient-luxury text-primary-foreground hover:shadow-luxury hover:scale-105 font-poppins font-bold animate-breathe",
+        default: "bg-gradient-primary text-primary-foreground hover:shadow-glow hover:scale-105",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-white/10 hover:text-foreground backdrop-blur-sm",
+        link: "text-primary underline-offset-4 hover:underline",
+        glass: "glass-panel text-foreground hover:bg-white/20 border-white/20",
+        hero: "bg-gradient-primary text-primary-foreground hover:shadow-glow hover:scale-105 font-poppins font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",

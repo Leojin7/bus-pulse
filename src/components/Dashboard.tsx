@@ -126,73 +126,63 @@ const Dashboard: React.FC = () => {
   const lowBatteryVehicles = vehicles.filter(v => v.batteryLevel < 30).length;
 
   return (
-    <div className="min-h-screen bg-gradient-hero texture-dots relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 bg-gradient-surface"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-pattern-grid opacity-20"></div>
-      
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-accent/20">
       {/* Header */}
-      <header className="premium-surface border-b backdrop-blur-2xl relative z-10 animate-fade-in-up">
-        <div className="container mx-auto px-6 py-6">
+      <header className="glass-panel border-b backdrop-blur-md">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4 animate-scale-in">
-              <div className="w-12 h-12 bg-gradient-luxury rounded-2xl flex items-center justify-center shadow-luxury hover-glow animate-breathe">
-                <Bus className="w-7 h-7 text-white" />
+            <div className="flex items-center space-x-4">
+              <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <Bus className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-poppins font-bold bg-gradient-luxury bg-clip-text text-transparent">
-                  E-Bus Management
-                </h1>
-                <p className="text-sm text-muted-foreground font-medium">Real-Time Fleet Tracking</p>
+                <h1 className="text-xl font-poppins font-bold text-foreground">E-Bus Management</h1>
+                <p className="text-sm text-muted-foreground">Real-Time Fleet Tracking</p>
               </div>
             </div>
 
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
               {/* Status Indicators */}
               <div className="hidden md:flex items-center space-x-4">
-                <div className="luxury-card px-4 py-2 rounded-xl hover-glow animate-breathe">
-                  <span className="text-sm font-bold text-foreground">Active: {activeVehicles}</span>
-                </div>
+                <Badge variant="outline" className="glass-card">
+                  Active: {activeVehicles}
+                </Badge>
                 {lowBatteryVehicles > 0 && (
-                  <div className="luxury-card px-4 py-2 rounded-xl bg-destructive/10 border-destructive/20 animate-glow-pulse">
-                    <span className="text-sm font-bold text-destructive">Low Battery: {lowBatteryVehicles}</span>
-                  </div>
+                  <Badge variant="destructive" className="animate-pulse">
+                    Low Battery: {lowBatteryVehicles}
+                  </Badge>
                 )}
               </div>
 
               {/* Controls */}
-              <div className="flex items-center space-x-2">
-                <Button size="sm" variant="glass" className="hover-breathe rounded-xl">
-                  <Bell className="w-4 h-4" />
-                </Button>
-                <Button size="sm" variant="glass" className="hover-breathe rounded-xl">
-                  <User className="w-4 h-4" />
-                </Button>
-                <Button size="sm" variant="glass" className="hover-breathe rounded-xl">
-                  <Settings className="w-4 h-4" />
-                </Button>
-              </div>
+              <Button size="sm" variant="ghost" className="hover:bg-white/10">
+                <Bell className="w-4 h-4" />
+              </Button>
+              <Button size="sm" variant="ghost" className="hover:bg-white/10">
+                <User className="w-4 h-4" />
+              </Button>
+              <Button size="sm" variant="ghost" className="hover:bg-white/10">
+                <Settings className="w-4 h-4" />
+              </Button>
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <div className="flex flex-col h-[calc(100vh-100px)] relative z-10 animate-slide-up-elegant">
-        <div className="premium-surface m-4 rounded-3xl overflow-hidden shadow-luxury hover-lift animate-float">
-          <MapView
-            vehicles={vehicles}
-            onVehicleSelect={handleVehicleSelect}
-            selectedVehicle={selectedVehicle}
-          />
-        </div>
+      <div className="flex flex-col h-[calc(100vh-80px)]">
+        <MapView
+          vehicles={vehicles}
+          onVehicleSelect={handleVehicleSelect}
+          selectedVehicle={selectedVehicle}
+        />
 
         {/* Mobile Toggle Button */}
         <Button
-          className="fixed bottom-8 right-8 z-30 rounded-full w-16 h-16 shadow-luxury luxury-card hover:shadow-glow animate-breathe hover-lift"
+          className="fixed bottom-6 right-6 z-30 rounded-full w-14 h-14 shadow-elegant glass-panel hover:shadow-glow"
           onClick={() => setIsVehicleListVisible(!isVehicleListVisible)}
         >
-          <Menu className="w-7 h-7" />
+          <Menu className="w-6 h-6" />
         </Button>
 
         <VehicleList
